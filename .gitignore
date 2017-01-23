@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules
+
+#prod
+/public/js/
+/public/style/
+
+# IDE
+.idea/
