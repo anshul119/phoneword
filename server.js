@@ -5,12 +5,14 @@ import bodyParser from 'body-parser'
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/api', (req, res) => {
-	res.json(req.body);
+app.get('/api', (req, res) => {
+	//[TODO] send json response here
+	let x = req.query.number * 2;
+	res.json(x);
 });
 
 const port = process.env.PORT || 8080;
