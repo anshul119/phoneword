@@ -24,7 +24,7 @@ export default class Keyboard extends React.Component {
 	}
 
 	findMatches() {
-		//dispatch ev here
+		this.props.dispatch(fetchMatches(this.state));
 	}
 
 	render() {
@@ -41,6 +41,11 @@ export default class Keyboard extends React.Component {
 				<div className="keys">{keys}</div>
 				<input type="checkbox" checked={this.state.dictionary} onChange={() => {this.toggleDictionary()}} name="dictionaryMatches"/>
 				<button className="get-result" onClick={() => {this.findMatches()}}>Find Matches</button>
+				<ul>
+					{this.props.matches.allMatches.map((match, i) => {
+						return <li key={i} >{match}</li>
+					})}
+				</ul>
 			</div>
 		);
 	}
