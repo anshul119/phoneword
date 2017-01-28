@@ -9,7 +9,7 @@ let keyMap = [
 	['p', 'q', 'r', 's'],
 	['t', 'u', 'v'],
 	['w', 'x', 'y', 'z']
-];
+]
 
 export function getMatches(number) {
 	let letters = [],
@@ -17,23 +17,23 @@ export function getMatches(number) {
 		cursor = 0,
 		currentWord = '',
 		limit = numberArray.length,
-		result = [];
+		result = []
 
 	numberArray.map(number => {
-		letters.push(keyMap[number]);
-	});
+		letters.push(keyMap[number])
+	})
 
-	return makeWords(letters, cursor, currentWord, limit, result);
+	return makeWords(letters, cursor, currentWord, limit, result)
 }
 
 function makeWords(letters, cursor, currentWord, limit, result) {
 	if (cursor === limit) {
-		result.push(currentWord);
+		result.push(currentWord)
 	}
 	else {
 		letters[cursor].map(letter => {
-			let nextWord = currentWord + letter;
-			makeWords(letters, cursor + 1, nextWord, limit, result);
+			let nextWord = currentWord + letter
+			makeWords(letters, cursor + 1, nextWord, limit, result)
 		})
 	}
 

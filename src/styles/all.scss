@@ -1,1 +1,8 @@
 @import "config/reset";
+@import "config/breakpoints";
+@import "config/grid";
+@import "config/colors";
+
+@import "./common";
+@import "./main.scss";
+@import "./header.scss";

@@ -9,4 +9,4 @@ export const KEYS = [
 	{ number : 8, letters : ['t', 'u', 'v']},
 	{ number : 9, letters : ['w', 'x', 'y', 'z']},
 	{ number : 0, letters : ['']}
-];
+]

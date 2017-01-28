@@ -19,8 +19,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-family: 'Roboto Slab', serif;;
-	font-size: 100%;
+	font-family: 'Roboto Slab', serif;
 	vertical-align: baseline;
 }
 a {
@@ -30,6 +29,9 @@ a {
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
 	display: block;
+}
+html{
+	font-size: 62.5%;
 }
 body {
 	line-height: 1;

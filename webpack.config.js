@@ -1,9 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack')
+var path = require('path')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-var BUILD_DIR = path.resolve(__dirname, 'public');
-var APP_DIR = path.resolve(__dirname, 'src');
+var BUILD_DIR = path.resolve(__dirname, 'public')
+var APP_DIR = path.resolve(__dirname, 'src')
 
 var config = {
 	devtool: 'inline-source-map',
@@ -22,13 +22,16 @@ var config = {
 			{
 				test : /\.jsx?/,
 				exclude: /node_modules/,
-				loader : 'babel'
+				loaders : ['babel', 'eslint-loader']
 			},
 			{
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract('css!sass')
 			},
 		]
+	},
+	eslint: {
+		configFile: './.eslintrc.json'
 	},
 	plugins: [
 		new webpack.DefinePlugin({
@@ -48,6 +51,6 @@ var config = {
 			allChunks: true
 		})
 	]
-};
+}
 
-module.exports = config;
+module.exports = config

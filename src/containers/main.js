@@ -1,19 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Keboard from '../components/keyboard';
+import React from 'react'
+import { connect } from 'react-redux'
+import Header from '../components/header'
+import Keboard from '../components/keyboard'
+import Footer from '../components/footer'
 
 class Main extends React.Component {
 	render() {
 		return (
-			<div className="main">
-				<Keboard />
+			<div>
+				<Header />
+				<Keboard matches={this.props.matches} dispatch={this.props.dispatch} />
+				<Footer />
 			</div>
-		);
+		)
 	}
 }
 
-export default connect(store => {
+function mapStateToProps(store) {
 	return {
 		matches: store.matches
-	};
-})(Keboard);
+	}
+}
+
+export default connect(mapStateToProps)(Main)
