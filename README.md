@@ -3,7 +3,7 @@
 Simple webapp made with love to convert digits to their equivalent words
 ([Phonewords](https://en.wikipedia.org/wiki/Phoneword))
 
->DEMO: [My Phoneword Webapp](http://ansul.xyz/phoneword)
+>DEMO: [My Phoneword Webapp](http://ansul.xyz:3000)
 
 ##Stack
 
