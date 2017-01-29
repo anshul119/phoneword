@@ -8,16 +8,36 @@ export default class Keyboard extends React.Component {
 		super(props)
 		this.state = {
 			typedNumber : '',
-			dictionary: false
+			dictionary: false,
+			typedNumberClass: 'keyboard_typed-number',
+			errorClass: 'keyboard_typed-number--error'
 		}
 	}
 
 	typeNumber(number) {
-		this.setState((previousState) => {
-			if(previousState.typedNumber.toString().length > MAXLENGTH - 1) {
-				return
+		this.setState(previousState => {
+			if(previousState.typedNumber.length > MAXLENGTH - 1) {
+				return {typedNumberClass: previousState.typedNumberClass.concat(' ' + this.state.errorClass)}
 			}
 			return {typedNumber: previousState.typedNumber.concat(number)}
+		})
+	}
+
+	delete() {
+		this.setState(previousState => {
+			let number = previousState.typedNumber
+			if(previousState.typedNumberClass.includes(this.state.errorClass)) {
+				let oldTypedNumberClass = this.state.typedNumberClass,
+					lastIndex = oldTypedNumberClass.lastIndexOf(' ')
+				let newTypedNumberClass = oldTypedNumberClass.substring(0, lastIndex)
+				return {
+					typedNumberClass: newTypedNumberClass,
+					typedNumber: number.substring(0, number.length - 1)
+				}
+			}
+			return {
+				typedNumber: number.substring(0, number.length - 1)
+			}
 		})
 	}
 
@@ -34,8 +54,8 @@ export default class Keyboard extends React.Component {
 	render() {
 		const keys = KEYS.map((key, i) => {
 			return (
-				<div className="keyboard-keys-key center" key={i}>
-					<button className="button button-primary" onClick={() => this.typeNumber(key.number)}>
+				<div className="keys_key center" key={i}>
+					<button className="button button_primary" onClick={() => this.typeNumber(key.number)}>
 						{key.number}
 					</button>
 					<span>{key.letters}</span>
@@ -44,10 +64,18 @@ export default class Keyboard extends React.Component {
 		})
 		return (
 			<div className="keyboard">
-				<div className="keyboard-typed_number">{this.state.typedNumber}</div>
-				<div className="keyboard-keys">{keys}</div>
-				<input type="checkbox" checked={this.state.dictionary} onChange={() => {this.toggleDictionary()}} name="dictionaryMatches"/>
-				<button className="keyboard-get_result button button-secondary" onClick={() => {this.findMatches()}}>Find Matches</button>
+				<div className={this.state.typedNumberClass}>
+					{this.state.typedNumber}
+					<div className="keyboard_backspace" onClick={() => this.delete()}>
+						<i className="fa fa-chevron-left"></i>
+					</div>
+				</div>
+				<div className="keys">{keys}</div>
+				<div className="checkbox">
+					<input className="checkbox_input" type="checkbox" checked={this.state.dictionary} onChange={() => {this.toggleDictionary()}} name="dictionaryMatches"/>
+					<label className="checkbox_label" htmlFor="dictionaryMatches">Only show dictionary matches</label>
+				</div>
+				<button className="keyboard_get-result button button_secondary" onClick={() => this.findMatches()}>Find Matches</button>
 			</div>
 		)
 	}

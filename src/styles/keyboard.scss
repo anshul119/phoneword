@@ -2,20 +2,44 @@
 	max-width: 35rem;
 	margin: 0 auto;
 
-	&-typed_number {
-		min-height: 2.8rem;
-		padding: 1rem;
-		border-bottom: .5rem solid $input-border;
-		font-size: 2.8rem;
+	&_backspace {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		padding: .1rem 1rem;
 	}
 
-	&-keys {
+	&_typed-number {
+		position: relative;
+		min-height: 2.8rem;
+		padding: 1rem;
+		margin: 0 0 2rem 0;
+		border-bottom: .5rem solid $input-border;
+		font-size: 2.8rem;
+
+		&--error {
+			border-bottom: .5rem solid $error;
+
+			&:after  {
+				content: 'Max length exceeded';
+				position: absolute;
+				left: 50%;
+				bottom: -50%;
+				transform: translateX(-50%);
+				color: $error;
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.keys {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 
-		&-key {
+		&_key {
 			position: relative;
 			flex-basis: 33.3%;
 
@@ -39,7 +63,22 @@
 		}
 	}
 
-	&-get_result {
+	.checkbox {
+		padding: 3rem 0;
+
+		&_input {
+			height: 2rem;
+			width: 2rem;
+		}
+
+		&_label {
+			font-size: 2rem;
+			margin-left: 1rem;
+			vertical-align: top;
+		}
+	}
+
+	&_get-result {
 		display: block;
 		padding: 1rem 2rem;
 		margin: 1rem auto;

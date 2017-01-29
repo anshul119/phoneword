@@ -12,7 +12,7 @@ class Main extends React.Component {
 				<Header />
 				<div className="content-wrapper">
 					<Keboard dispatch={this.props.dispatch} />
-					<Matches matches ={this.props.matches.allMatches} />
+					<Matches matches ={this.props.matches.matches} />
 				</div>
 				<Footer />
 			</div>

@@ -1,8 +1,7 @@
 import { FETCH_MATCHES_SUCCESS, FETCH_MATCHES_FAIL } from '../constants/actionTypes'
 
 const defaultState = {
-	allMatches: [],
-	dictionaryMatches: [],
+	matches: [],
 	error: null
 }
 
@@ -17,7 +16,7 @@ export default function reducer(state = defaultState, action) {
 	case FETCH_MATCHES_SUCCESS: {
 		return {
 			...state,
-			allMatches: action.payload
+			matches: action.payload
 		}
 	}
 	default:

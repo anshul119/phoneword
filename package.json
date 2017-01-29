@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=development webpack -d --watch",
+    "build": "webpack -d --watch",
     "build-prod": "NODE_ENV=production node_modules/.bin/webpack -p",
     "start": "node_modules/.bin/babel-node server.js"
   },

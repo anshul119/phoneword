@@ -11,4 +11,4 @@ export const KEYS = [
 	{ number : 0, letters : ''}
 ]
 
-export const MAXLENGTH = 6
+export const MAXLENGTH = 8

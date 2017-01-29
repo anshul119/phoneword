@@ -1,18 +1,17 @@
 .header {
 	margin: 0 auto;
 	max-width: 100%;
-	padding-bottom: 5rem;
-	padding-top: 5rem;
+	padding: 5rem 0;
 	background-color: $header-bg;
 
-	&-heading {
+	&_heading {
 		font-size: 4.8rem;
 		color: $heading;
 	}
 
-	&-sub_heading {
+	&_sub-heading {
 		margin: 1rem 0;
 		font-size: 1.6rem;
-		color: $subheading;
+		color: $sub-heading;
 	}
 }

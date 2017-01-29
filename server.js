@@ -23,11 +23,12 @@ app.use(morgan('common', {stream: accessLogStream}))
 
 app.get('/api', cors(corsConfig), (req, res) => {
 	let number = req.query.number
+	let dictionary = req.query.dictionary
 	if(number.toString().length > MAXLENGTH ) {
 		var shortenNumber = number.toString().substring(0, MAXLENGTH)
 		number = parseInt(shortenNumber, 10)
 	}
-	res.json(getMatches(number))
+	res.json(getMatches(number, dictionary))
 })
 
 //404

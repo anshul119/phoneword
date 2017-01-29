@@ -11,7 +11,15 @@ let keyMap = [
 	['w', 'x', 'y', 'z']
 ]
 
-export function getMatches(number) {
+export function getMatches(number, dictionary) {
+	if(dictionary === true) {
+		return dictionaryMatches(number)
+	} else {
+		return getAllMatches(number)
+	}
+}
+
+export function getAllMatches(number) {
 	let letters = [],
 		numberArray = number.toString().split(''),
 		cursor = 0,
@@ -38,4 +46,10 @@ function makeWords(letters, cursor, currentWord, limit, result) {
 	}
 
 	return result
+}
+
+function dictionaryMatches(number) {
+	let allMatches = getAllMatches(number);
+	//logic for getting all meaningful matches
+	return allMatches
 }

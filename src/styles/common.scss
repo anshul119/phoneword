@@ -13,14 +13,14 @@
 	border: 0;
 	cursor: pointer;
 
-	&-primary {
+	&_primary {
 		border-bottom: .2rem solid $button-shadow-primary;
 		background: $button-primary;
 		-webkit-box-shadow: inset 0 -.2rem $button-shadow-primary;
 		box-shadow: inset 0 -.2rem $button-shadow-primary;
 	}
 
-	&-secondary {
+	&_secondary {
 		border-bottom: .2rem solid $button-shadow-secondary;
 		background: $button-secondary;
 		-webkit-box-shadow: inset 0 -.2rem $button-shadow-secondary;
