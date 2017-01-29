@@ -32,6 +32,14 @@ footer, header, menu, nav, section {
 }
 html{
 	font-size: 62.5%;
+
+	@media (max-device-width: $tablet) {
+		font-size: 100%;
+	}
+
+	@media (max-device-width: $small) {
+		font-size: 150%;
+	}
 }
 body {
 	line-height: 1;
