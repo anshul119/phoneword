@@ -5,3 +5,32 @@
 .uppercase {
 	text-transform: uppercase;
 }
+
+.button {
+	vertical-align: top;
+	color: $button-text;
+	text-align: center;
+	border: 0;
+	cursor: pointer;
+
+	&-primary {
+		border-bottom: .2rem solid $button-shadow-primary;
+		background: $button-primary;
+		-webkit-box-shadow: inset 0 -.2rem $button-shadow-primary;
+		box-shadow: inset 0 -.2rem $button-shadow-primary;
+	}
+
+	&-secondary {
+		border-bottom: .2rem solid $button-shadow-secondary;
+		background: $button-secondary;
+		-webkit-box-shadow: inset 0 -.2rem $button-shadow-secondary;
+		box-shadow: inset 0 -.2rem $button-shadow-secondary;
+	}
+
+	&:active {
+		top: .1rem;
+		outline: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+}

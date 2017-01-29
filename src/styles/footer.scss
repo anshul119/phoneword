@@ -1,0 +1,12 @@
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 1rem 0 ;
+	background: $footer-bg;
+
+	&-credits {
+		font-size: 1.4rem;
+		color: $footer-credits;
+	}
+}

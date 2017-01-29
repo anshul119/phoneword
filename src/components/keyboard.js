@@ -1,7 +1,7 @@
 import React from 'react'
 import { KEYS } from '../constants/keys'
 import { fetchMatches } from '../actions/matchesAction'
-import Matches from './matches'
+import { MAXLENGTH } from '../constants/keys'
 
 export default class Keyboard extends React.Component {
 	constructor(props){
@@ -14,6 +14,9 @@ export default class Keyboard extends React.Component {
 
 	typeNumber(number) {
 		this.setState((previousState) => {
+			if(previousState.typedNumber.toString().length > MAXLENGTH - 1) {
+				return
+			}
 			return {typedNumber: previousState.typedNumber.concat(number)}
 		})
 	}
@@ -29,19 +32,22 @@ export default class Keyboard extends React.Component {
 	}
 
 	render() {
-		const keys = KEYS.map(key => {
+		const keys = KEYS.map((key, i) => {
 			return (
-				<button onClick={() => this.typeNumber(key.number)} key={key.number}>
-					{key.number}
-				</button>)
+				<div className="keyboard-keys-key center" key={i}>
+					<button className="button button-primary" onClick={() => this.typeNumber(key.number)}>
+						{key.number}
+					</button>
+					<span>{key.letters}</span>
+				</div>
+			)
 		})
 		return (
 			<div className="keyboard">
-				<div className="typedNumber">{this.state.typedNumber}</div>
-				<div className="keys">{keys}</div>
+				<div className="keyboard-typed_number">{this.state.typedNumber}</div>
+				<div className="keyboard-keys">{keys}</div>
 				<input type="checkbox" checked={this.state.dictionary} onChange={() => {this.toggleDictionary()}} name="dictionaryMatches"/>
-				<button className="get-result" onClick={() => {this.findMatches()}}>Find Matches</button>
-				<Matches matches ={this.props.matches.allMatches} />
+				<button className="keyboard-get_result button button-secondary" onClick={() => {this.findMatches()}}>Find Matches</button>
 			</div>
 		)
 	}

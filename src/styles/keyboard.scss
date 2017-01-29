@@ -1,0 +1,49 @@
+.keyboard {
+	max-width: 35rem;
+	margin: 0 auto;
+
+	&-typed_number {
+		min-height: 2.8rem;
+		padding: 1rem;
+		border-bottom: .5rem solid $input-border;
+		font-size: 2.8rem;
+	}
+
+	&-keys {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+
+		&-key {
+			position: relative;
+			flex-basis: 33.3%;
+
+			button {
+				width: 10rem;
+				height: 5rem;
+				margin: 1rem 0 0;
+				padding: 0 0 1.5rem 0;
+				font-size: 2.4rem;
+			}
+
+			span {
+				position: absolute;
+				bottom: .5rem;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 1.4rem;
+				color: $button-letters-text;
+				pointer-events: none;
+			}
+		}
+	}
+
+	&-get_result {
+		display: block;
+		padding: 1rem 2rem;
+		margin: 1rem auto;
+		font-size: 2.4rem;
+		text-transform: uppercase;
+	}
+}
