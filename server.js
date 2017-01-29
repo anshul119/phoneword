@@ -31,12 +31,11 @@ app.get('/api', cors(corsConfig), (req, res) => {
 	res.json(getMatches(number, dictionary))
 })
 
-//404
 app.get('*', (req, res) => {
 	res.send('aww.')
 })
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 const env = process.env.NODE_ENV || 'development'
 
 app.listen(port, err => {
